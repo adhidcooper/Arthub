@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <article class="columns">
+      
+        
+
+     <!--  <div class="media-left">
+        <figure class="image is-128x128">
+            <img class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
+          </figure>
+        </div> -->
+      
+
+       
+          
+        <div class="media-content">
+          <div class="column is-one-quarter is-offset-one-half">
+          <figure class="image is-256x256">
+            {% if profile.picture %}
+            <img class="is-rounded"
+            src="{{ profile.picture.url }}" >
+            {% else %}
+            <img class="is-rounded"
+            src=" https://bulma.io/images/placeholders/256x256.png" >
+            {% endif %}
+          </figure>
+        </div>
+            
+                <h1 class="title is-1" style="font-weight: bold;">{% if profile.first_name %}{{ profile.first_name }} {{ profile.last_name }} {% endif %}</h1>
+                <h1 class="subtitle is-3">@{{ profile.user }}</h1>
+                <div class="columns">
+                {% if user.is_authenticated and user != profile.user %}
+                
+                  <div class="column">  
+                    {% if follow_status == True %}
+                <a href="{% url 'follow' profile.user 0 %}" class="button is-danger button is-medium is-fullwidth">UnFollow</a> 
+                  {% else %}
+                  <a href="{% url 'follow' profile.user 1 %}" class="button is-success button is-medium is-fullwidth">Follow</a> 
+                  {% endif %}
+                  </div>
+                  {% endif %}
+              <div class="column">
+                <button class="button is-danger is-medium is-fullwidth">Get In touch</button>
+                </div>
+                </div>
+                
+        <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Works</p>
+                <p class="title">{{ posts_count }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Following</p>
+                <p class="title">{{ following_count }}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Followers</p>
+                <p class="title">{{ followers_count }}</p>
+              </div>
+            </div>
+          
+          </nav>
+
+          <p class="subtitle is-5">{% if profile.profile_info %} {{ profile.profile_info }} {% endif %}</p>
+
+          {%  if user.is_authenticated and user == profile.user %}
+          <a href="{% url 'edit-profile' %}" class="button is-medium">Edit Profile</a>
+          {% endif %}
+                 </div>
+
+        </article>
+
+
+
+          
+        </div>
+    </div>
+
+    </div>
+ </section>
+
+
+        <!------------Tab Profile -------------->
+
+        
+        <div class="tabs is-centered is-boxed is-medium">
+            <ul>
+              <li class="{% if url_name == 'profile' %} is-active{% endif %}">
+                <a href="{% url 'profile' profile.user %}">
+                  <span>Art Gallery</span>
+                </a>
+              </li>
+
+
+            <li class="{% if url_name == 'profilefavorites' %} is-active {% endif %}">
+                <a href="{% url 'profilefavorites' profile.user %}">
+                  <span>Saved Works</span>
+                </a>
+              </li>
+            </ul>
+        </div>
+
+
+
+
+
+  <section class="section">
+    <div class="container">
+
+      <!--Multiline Cards in row-->
+      <div class="columns is-mobile is-multiline is-centered">
+
+
+        {% for post in posts %}
+        <!-- A single Card-->
+        <div class="column is-one-third">
+          <div class="box">
+                <figure class="image is-256x256">
+                 <a href="{{ post.get_absolute_url }}"> <img src="{{ post.picture.url }}" alt="Image"></a>
+                </figure>
+              </div>
+          </div>
+          {% empty %}
+          <br>
+            <h3 class ="title is-3">You do not have any post!</h3>
+          {% endfor %}
+
+
+      </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+ {% endblock %}

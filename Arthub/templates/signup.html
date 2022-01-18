@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Sign-up:Arthub</title>
+</head>
+
+<body>
+
+
+
+
+  <section class="section ">
+    <div class="container">
+      <div class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="columns is-mobile has-text-centered">
+            <div class="column is-full is-centered">
+
+
+
+
+
+              <div class="card">
+                <div class="card-content">
+
+
+                  <form method="post" action="" role="form">
+                    {% csrf_token %}
+
+                    <div class="field">
+                      <div class="columns is-mobile is-centered is-half">
+                        <figure class="image is-128x128">
+                          <img class="is-rounded" src="{% static 'img/add-friend.png' %}">
+                        </figure>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="columns is-mobile is-centered">
+                        <h1 class="title is-3">Create a new account?</h1>
+                      </div>
+                    </div>
+
+                    <br>
+
+                    <div class="field">
+                      <p class="control"></p>
+                        <label class="label is-medium">Username</label>
+                        {{ form.username }}
+                      </p>
+                    </div>
+
+                    <div class="field">
+                      <p class="control"></p>
+                        <label class="label is-medium">Email</label>
+                        {{ form.email }}
+                      </p>
+                    </div>
+                    
+                    <div class="field">
+                      <p class="control">
+                        <label class="label is-medium">Password</label>
+                      {{ form.password }}
+                      </p>
+                    </div>
+
+                    <div class="field">
+                      <p class="control">
+                        <label class="label is-medium">Confirm Password</label>
+                      {{ form.confirm_password }}
+                      </p>
+                    </div>
+
+                      <div class="row">
+                      <div class="col s12">
+                        <span style="color: red; font-weight: bold;">{{ form.errors }}</span>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <p class="control">
+                        <button class="button is-success is-fullwidth" type="submit" name="action" >Create</button>
+                      </p>
+                    </div>
+
+                    <div class="field">
+                      <div class="columns is-mobile is-centered">
+                        <div class="column is-6">
+                          <a href="{% url 'login' %}">Already have an account?</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p>
+              <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+              is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+          </div>
+        </footer>
+
+        <script src ="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

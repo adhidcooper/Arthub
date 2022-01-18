@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="columns is-mobile">
+<div class="column 
+is-three-fifths
+is-offset-one-fifth
+">
+
+
+<div class ="field has-addons">
+<form>
+    <div class="control">
+        <input type="text" name="q" class="input is-large"
+         placeholder="Search Artist" value="{{ request.GET.q }}" >
+    </div>
+    <div class="control">
+        <button  type ="submit" class="button is-success is-large">
+            Search
+        </button>
+    </div>
+</form>
+</div>
+
+
+
+</div>
+</div>
+
+<div class="column is-one-quarter">
+
+    {% for user in users %}
+
+    <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+                {% if user.profile.picture %}
+                <img src="{{ user.profile.picture.url }}" alt="Placeholder image">
+                {% else %}
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                {% endif %}
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong >{{ user.profile.first_name }} {{ user.profile.last_name }}</strong> <small>@{{ user.username }}</small>
+            </p>
+            <a href="{% url 'newconversation' user.username %}" class ="button is-info">Send Message</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+
+</div>
+
+
+
+
+{% endblock %}
