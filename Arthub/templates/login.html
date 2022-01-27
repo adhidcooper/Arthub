@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link rel="icon" type="image/png" href="{% static 'img/.png' %}">
+   
+   
     <title>Login: Arthub</title>
 </head>
 <body>
@@ -21,22 +24,21 @@
 
   <section class="section ">
     <div class="container">
-     <div class="hero is-fullheight">
-      <div class="hero-body">
-      <div class="columns is-mobile has-text-centered">
-        <div class="column is-full is-centered">
-
         
-                 
+        <div class="hero">
+          <div class="hero-body">
+
+
+      <div class="columns is-mobile has-text-centered">
+        <div class="column is-4 ">
+        
   
 
-  <div class="card">
-    <div class="card-content">
-      
+  <div class="card ">
+    <div class="card-content is-half">
 
-      <form method="post" action="" role="form">
-        {% csrf_token %}
-
+      <form method="post"  role="form">
+        {% csrf_token %} 
         <div class="field">
           <div class="columns is-mobile is-centered is-half">
               <figure class="image is-128x128">
@@ -45,21 +47,26 @@
           </div>
       </div>
 
-        <h3 class="title is-3 is-centered">Login</h3>
+      <br>
 
+      <h3 class="title is-3 is-centered">LOGIN</h3>
+
+      <hr>
 
       <div class="field">
         <p class="control"></p>
-          <label class="label is-medium">Username</label>
-       
-          {{ form.username }}
+         <!-- <label class="label is-medium">Username</label> -->
+         <!-- {{ form.username }} -->
+          {% render_field form.username class="input is-medium" placeholder="Username" %}
         </p>
       </div>
 
       <div class="field">
         <p class="control">
-          <label class="label is-medium">Password</label>
-        {{ form.password }}
+        <!--  <label class="label is-medium">Password</label>  -->
+        <!-- {{ form.password }} -->
+        {% render_field form.password class="input is-medium" placeholder="Password" %}
+         
         </p>
       </div>
 
@@ -68,32 +75,43 @@
         <div class="col s12">
           <span style ="color: red; font-weight: bold;">Your username or password did not match.
           </span>
+         
         </div> 
       </div>
       {% endif %}
+      <br>
       <div class="field">
       <p class="control">
-        <button type="submit" value ="login" class="button is-success">Login</button>
+        <div class="buttons are-medium is-centered">
+        <button type="submit" value ="login" class="button are-medium is-success ">Login</button>
+      </div>
       </p>
     </div>
 
     <input type="hidden" name="next" value="{{ next }}">
-
-    <a class="button is-info" href="{% url 'signup' %}">Create an account?</a>
-
-
+    <hr>
+    <div class="buttons are-medium is-centered">
+    <a class="button is-info are-medium" href="{% url 'signup' %}">Create an account?</a>
+    </div>
     </form>
 
 
     </div>
   </div>
+</div>
 
+      <div class="column">
+        <h1 class="title" style="font-size: 100px; display: flex;
+        justify-content: center; align-items: center; margin-top: 200px;" >ART<span style="color: crimson;">HUB</span></h1>
+      </div>
 
-    </div>
     </div>
 </div>
 </div>
+
+
   </div>
+</div>
 
 </section>
            
@@ -102,9 +120,8 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        <strong>ARTHUB</strong> by <a href="#">Adarsh Unni</a>, <a href="#">Bhuvana Somashekar</a>,  <a href="#">Bhoomika GL</a> The source code is available on  
+        <a href="https://github.com/adhidcooper/arthub">GITHUB</a>.
       </p>
     </div>
   </footer>

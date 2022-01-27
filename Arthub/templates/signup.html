@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,117 +17,167 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <title>Sign-up:Arthub</title>
-</head>
+    <style>
+        :root {
+          --brandColor: hsl(166, 67%, 51%);
+          --background: rgb(247, 247, 247);
+          --textDark: hsla(0, 0%, 0%, 0.66);
+          --textLight: hsla(0, 0%, 0%, 0.33);
+        }
+    
+        body {
+          background: var(--background);
+          height: 100vh;
+          color: var(--textDark);
+        }
+    
+        .field:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+    
+        .register {
+          margin-top: 10rem;
+          background: white;
+          border-radius: 10px;
+        }
+    
+        .left,
+        .right {
+          padding: 4.5rem;
+        }
+    
+        .left {
+          border-right: 5px solid var(--background);
+        }
+    
+        .left .title {
+          font-weight: 800;
+          letter-spacing: -2px;
+        }
+    
+        .left .colored {
+          color: var(--brandColor);
+          font-weight: 500;
+          margin-top: 1rem !important;
+          letter-spacing: -1px;
+        }
+    
+        .left p {
+          color: var(--textLight);
+          font-size: 1.15rem;
+        }
+    
+        .right .title {
+          font-weight: 800;
+          letter-spacing: -1px;
+        }
+    
+        .right .description {
+          margin-top: 1rem;
+          margin-bottom: 1rem !important;
+          color: var(--textLight);
+          font-size: 1.15rem;
+        }
+    
+        .right small {
+          color: var(--textLight);
+        }
+    
+        input {
+          font-size: 1rem;
+        }
+    
+        input:focus {
+          border-color: var(--brandColor) !important;
+          box-shadow: 0 0 0 1px var(--brandColor) !important;
+        }
+    
+        .fab,
+        .fas {
+          color: var(--textLight);
+          margin-right: 1rem;
+        }
+    
+      </style>
+    
 
-<body>
 
+  </head>
 
-
-
-  <section class="section ">
-    <div class="container">
-      <div class="hero is-fullheight">
-        <div class="hero-body">
-          <div class="columns is-mobile has-text-centered">
-            <div class="column is-full is-centered">
-
-
-
-
-
-              <div class="card">
-                <div class="card-content">
-
-
-                  <form method="post" action="" role="form">
-                    {% csrf_token %}
-
-                    <div class="field">
-                      <div class="columns is-mobile is-centered is-half">
-                        <figure class="image is-128x128">
-                          <img class="is-rounded" src="{% static 'img/add-friend.png' %}">
-                        </figure>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="columns is-mobile is-centered">
-                        <h1 class="title is-3">Create a new account?</h1>
-                      </div>
-                    </div>
-
+  <body>
+    <section class="container">
+      <div class="columns is-multiline">
+        <div class="column is-8 is-offset-2 register">
+          <div class="columns">
+            <div class="column left">
+              
+              <h1 class="title is-1">Create a new Account ?</h1>
+              <h1 class="title is-4">Sign up today</h1>
+                    <hr>
                     <br>
 
-                    <div class="field">
-                      <p class="control"></p>
-                        <label class="label is-medium">Username</label>
-                        {{ form.username }}
-                      </p>
+                <div class="field">
+                    <div class="column is-6">
+                        <a href="{% url 'login' %}"><b>Already have an account?</b></a>
                     </div>
-
-                    <div class="field">
-                      <p class="control"></p>
-                        <label class="label is-medium">Email</label>
-                        {{ form.email }}
-                      </p>
-                    </div>
-                    
-                    <div class="field">
-                      <p class="control">
-                        <label class="label is-medium">Password</label>
-                      {{ form.password }}
-                      </p>
-                    </div>
-
-                    <div class="field">
-                      <p class="control">
-                        <label class="label is-medium">Confirm Password</label>
-                      {{ form.confirm_password }}
-                      </p>
-                    </div>
-
-                      <div class="row">
-                      <div class="col s12">
-                        <span style="color: red; font-weight: bold;">{{ form.errors }}</span>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <p class="control">
-                        <button class="button is-success is-fullwidth" type="submit" name="action" >Create</button>
-                      </p>
-                    </div>
-
-                    <div class="field">
-                      <div class="columns is-mobile is-centered">
-                        <div class="column is-6">
-                          <a href="{% url 'login' %}">Already have an account?</a>
-                        </div>
-                      </div>
-                    </div>
-
-
-
-                  </form>
                 </div>
 
-              </div>
+            </div>
+            
+            <div class="column right has-text-centered">
+              <form method="post" action="" role="form">
+                {% csrf_token %}
+                <div class="field">
+                  <div class="control">
+                    {% render_field form.username class="input is-medium" placeholder="your username" %}
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    {% render_field form.email class="input is-medium" placeholder="your email-id" %}
+                  </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        {% render_field form.password class="input is-medium" placeholder="your new password" %}
+                    </div>
+                  </div>
+  
+                <div class="field">
+                    <div class="control">
+                        {% render_field form.confirm_password class="input is-medium" placeholder="confirm password" %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                      <span style="color: red; font-weight: bold;">{{ form.errors }}</span>
+                    </div>
+                </div>
+
+                <hr>
+
+
+                <button class="button is-block is-primary is-fullwidth is-medium" type="submit" name="action" >Create</button>
+                <br />
+            
+              </form>
             </div>
           </div>
         </div>
+        
+          </nav>
+        </div>
+      </div>
+    </section>
 
-        <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-              <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-              is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
-          </div>
-        </footer>
 
-        <script src ="{% static 'js/script.js' %}"></script>
 
-</body>
+
+
+
+  </body>
 
 </html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ArtHub</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
@@ -19,17 +19,19 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="{% static 'img/art-and-design.png' %}">
+   
   </head>
   <body>
     <!-----------Navigation  Bar------------>
     <nav
-      class="navbar is-dark is-spaced"
+      class="navbar is-spaced has-shadow is-light"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="{% url 'index' %}">
-          <h2 class="title" style="color: #fff">ArtHub</h2>
+          <h2 class="title" >ArtHub</h2>
         </a>
 
         <a
@@ -52,7 +54,7 @@
             Home
           </a>
 
-          <a class="navbar-item">
+          <a class="navbar-item" href="{% url 'usersearch' %}">
             <i class="material-icons"> explore </i>
             Explore
           </a>
@@ -94,14 +96,16 @@
             </a>
 
             <div class="navbar-dropdown is-right">
-              <a class="navbar-item">
+              <a class="navbar-item" href="{% url 'change_password' %}">
                 <i class="material-icons"> lock </i>
-                Security
+                Change_password
               </a>
-              <a class="navbar-item">
+
+              <a class="navbar-item" href="{% url 'edit-profile' %}">
                 <i class="material-icons"> manage_accounts </i>
-                Account
+               Edit-Account
               </a>
+
               <a class="navbar-item">
                 <i class="material-icons"> report </i>
                 Report an issue
@@ -118,11 +122,14 @@
                 Log out
               </a>
             </div>
-            <hr class="navbar-divider" />
+            <hr class="navbar-divider"/>
           </div>
         </div>
       </div>
     </nav>
+
+
+
 
     {% block banner %} {% endblock %}
 

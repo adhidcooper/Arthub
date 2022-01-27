@@ -1,8 +1,25 @@
-{% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
-        
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'img/.png' %}">
+   
+   
+    <title>Login: Arthub</title>
+</head>
+<body>
+
 
 <div class = "columns is-mobile ">
 <div class = "column is-half is-offset-one-quarter">
@@ -19,7 +36,8 @@
     <div class="field">
           <label class="label is-medium">Choose your picture</label>
           <div class = "file is-boxed">
-          {{ form.picture }}
+          
+          {% render_field form.picture %}
         </div>
       </div>
 
@@ -60,10 +78,6 @@
     </div>
 
 
-
-
-
-
       <div class="row">
         <div class="col s12">
           <span style="color: red; font-weight: bold;">{{ form.errors }}</span>
@@ -83,5 +97,6 @@
 
 </div>
 </div>
-
-{% endblock %}
+  
+</body>
+</html>

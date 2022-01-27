@@ -4,6 +4,12 @@
 
 {% block content %}
 
+{% load widget_tweaks %}
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-three-quarters">
+
+
     <article class="columns">
       
         
@@ -18,13 +24,13 @@
        
           
         <div class="media-content">
-          <div class="column is-one-quarter is-offset-one-half">
-          <figure class="image is-256x256">
+          <div class="column is-4 is-offset-4 ">
+          <figure class="image is-256x256" >
             {% if profile.picture %}
             <img class="is-rounded"
             src="{{ profile.picture.url }}" >
             {% else %}
-            <img class="is-rounded"
+            <img class="is-rounded" 
             src=" https://bulma.io/images/placeholders/256x256.png" >
             {% endif %}
           </figure>
@@ -43,10 +49,14 @@
                   {% endif %}
                   </div>
                   {% endif %}
+                  
               <div class="column">
-                <button class="button is-danger is-medium is-fullwidth">Get In touch</button>
+                {% if user.is_authenticated and user != profile.user %}
+                <a href="{% url 'newconversation' user.username %}" class="button is-info is-medium is-fullwidth">Send a message</a>
+                {% endif %}
                 </div>
                 </div>
+              
                 
         <nav class="level">
             <div class="level-item has-text-centered">
@@ -69,12 +79,16 @@
             </div>
           
           </nav>
+          <hr>
+
+          <br>
 
           <p class="subtitle is-5">{% if profile.profile_info %} {{ profile.profile_info }} {% endif %}</p>
 
-          {%  if user.is_authenticated and user == profile.user %}
+         <!-- {%  if user.is_authenticated and user == profile.user %}
           <a href="{% url 'edit-profile' %}" class="button is-medium">Edit Profile</a>
           {% endif %}
+          -->
                  </div>
 
         </article>
@@ -131,7 +145,7 @@
           </div>
           {% empty %}
           <br>
-            <h3 class ="title is-3">You do not have any post!</h3>
+            <h3 class ="title is-3">No Posts Available!</h3>
           {% endfor %}
 
 
@@ -145,6 +159,9 @@
     </div>
   </section>
 
+  </div>
+
+</div>
 
 
  {% endblock %}

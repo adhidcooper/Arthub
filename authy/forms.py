@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from authy.models import Profile
 
+from django.contrib.auth.forms import AuthenticationForm
+
 
 def ForbiddenUsers(value):
     forbidden_users = ['admin', 'css', 'js', 'authenticate', 'login', 'logout', 'administrator', 'root',
@@ -30,13 +32,13 @@ def UniqueUser(value):
 
 class SignupForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'input is-small'}), max_length=30, required=True,)
+        attrs={'class': 'input is-medium'}), max_length=30, required=True,)
     email = forms.CharField(widget=forms.EmailInput(
-        attrs={'class': 'input is-small'}), max_length=100, required=True,)
+        attrs={'class': 'input is-medium'}), max_length=100, required=True,)
     password = forms.CharField(widget=forms.PasswordInput(
-        attrs={'class': 'input is-small'}))
+        attrs={'class': 'input is-medium'}))
     confirm_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'input is-small'}), required=True, label="Confirm your password.")
+        widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), required=True, label="Confirm your password.")
 
     class Meta:
 
@@ -64,11 +66,11 @@ class SignupForm(forms.ModelForm):
 class ChangePasswordForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput())
     old_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'input is-small'}), label="Old password", required=True)
+        widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="Old password", required=True)
     new_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'input is-small'}), label="New password", required=True)
+        widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="New password", required=True)
     confirm_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'input is-small'}), label="Confirm new password", required=True)
+        widget=forms.PasswordInput(attrs={'class': 'input is-medium'}), label="Confirm new password", required=True)
 
     class Meta:
         model = User

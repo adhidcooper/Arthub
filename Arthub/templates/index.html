@@ -9,11 +9,13 @@
       <div class="columns is-mobile is-centered">
         <div class="column is-half">
 
-   
+      
+
+ 
 
           {% for post_item in post_items %}  
        <!-----Card Section ------>
-      <div class="card">
+      <div class="card ">
         <div class="card-image">
           <figure class="image">
             <a href="{{ post_item.get_absolute_url }}"><img src="{{ post_item.picture.url }}" alt="Placeholder image"></a>
@@ -30,6 +32,7 @@
                 {% endif %}
               </figure>
             </div>
+            <a href="{% url 'profile' user %}">
             <div class="media-content">
               {% if post_item.user.profile.first_name %}
                <a href="{% url 'profile' post_item.user %}"><p class="title is-4">{{ post_item.user.profile.first_name }} {{ post_item.user.profile.last_name }}</p> </a>
@@ -47,6 +50,7 @@
               <br>
               <strong><small datetime="2016-1-1">{{ post_item.posted }}</small></strong>
             </div>
+          </a>
         
       
 
@@ -66,13 +70,15 @@
 
       {% endfor %}
 
-  
 
 
+
+              
 
     </div>
   </div>
 
+  
 
 {% endblock %}
   

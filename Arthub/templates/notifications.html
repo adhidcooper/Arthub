@@ -32,8 +32,17 @@
                 </figure>
                 <div class="media-content">
                   <div class="content">
+                    <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
                     <strong>{{ notification.sender.profile.first_name }} {{ notification.sender.profile.last_name }}</strong>
-                    <small>@{{ notification.sender.profile.username }}</small> 
+                    </a>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
+                    <small>@{{ notification.sender.profile.user }}</small> 
+                    </a>
+                    
                     <br>
                     Commented:
                     <p>
@@ -88,8 +97,16 @@
                    </figure>
                    <div class="media-content">
                      <div class="content">
+                      <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
                        <strong>{{ notification.sender.profile.first_name }} {{ notification.sender.profile.last_name }}</strong>
-                        <small>@{{ notification.sender.profile.username }}</small> 
+                       </a>
+                       &nbsp;
+                       &nbsp;
+                       &nbsp;
+                       &nbsp;
+                       <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
+                        <small>@{{ notification.sender.profile.user }}</small> 
+                      </a>
                        <br>
                          <p><i class="material-icons">person_add</i> Following You !</p>
                     <strong><small>{{ notification.date|naturaltime }}</small></strong>
@@ -129,8 +146,16 @@
                    </figure>
                    <div class="media-content">
                      <div class="content">
+                      <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
                        <strong>{{ notification.sender.profile.first_name }} {{ notification.sender.profile.last_name }}</strong> 
-                       <small>@{{ notification.sender.profile.username }}</small> 
+                      </a>
+                      &nbsp;
+                      &nbsp;
+                      &nbsp;
+                      &nbsp;
+                      <a href="{% url 'profile' notification.sender.profile.user %}" style="text-decoration: none;">
+                       <small>@{{ notification.sender.profile.user }}</small> 
+                       </a>
                        <br>
                          <p><i class="material-icons">thumb_up</i> Reacted your post !</p>
                     <strong><small>{{ notification.date|naturaltime }}</small></strong>

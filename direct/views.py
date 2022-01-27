@@ -118,4 +118,4 @@ def checkDirects(request):
         directs_count = Message.objects.filter(
             user=request.user, is_read=False).count()
 
-    return {'direct_couns': directs_count}
+    return {'directs_count': directs_count}

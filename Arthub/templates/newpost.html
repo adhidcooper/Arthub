@@ -4,6 +4,22 @@
 
 {% block content %}
 
+{% load widget_tweaks %}
+<style>
+    :root {
+          --brandColor: hsl(166, 67%, 51%);
+          --background: rgb(185, 185, 185);
+          --textDark: hsla(0, 0%, 0%, 0.66);
+          --textLight: hsla(0, 0%, 0%, 0.33);
+        }
+    
+        body {
+          background: var(--background);
+          height: auto;
+          color: var(--textDark);
+        }
+</style>
+
 <div class="columns is-mobile has-text-centered">
     <div class="column is-half is-offset-one-quarter">
   
@@ -12,12 +28,20 @@
   
       <form method="post" action="" enctype="multipart/form-data" role="form">
       {% csrf_token %}
-      <h3 class="title is-1">Add Post</h3>
+      <h3 class="title is-1" style="margin-bottom:10px ;">
+        <i class="material-icons" style="font-size: larger; padding-top: 10px;">
+          add_circle
+        </i>
+        Add Post
+      </h3>
+      <hr>
   
               <div class="field">
                 <p class="control has-icons-left">
                 <label class="label is-medium">Upload your Artwork</label>
-                  {{ form.picture }}
+                <br>
+                  {% render_field form.picture  class="button is-medium" style="color: green" %}
+                  
                   <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -27,7 +51,7 @@
               <div class="field">
                 <p class="control has-icons-left">
                 <label class="label is-medium">Caption</label>
-                  {{ form.caption }}
+                  {% render_field form.caption class="textarea"  placeholder="Caption ..." %}
                   <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -37,19 +61,16 @@
               <div class="field">
                 <p class="control has-icons-left">
                 <label class="label is-medium">Tags (add tags, separated by commas)</label>
-                  {{ form.tags }}
+                  {% render_field form.tags class="input is-medium" rows="2" placeholder="hash is not required" %}
                   <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
           </p>
             </div>
   
-
-  
-      
         <div class="field">
         <p class="control">
-          <button type="submit" name="action" class="button is-success">
+          <button type="submit" name="action" class="button is-success ">
             Create Post
           </button>
         </p>
