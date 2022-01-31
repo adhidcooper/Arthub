@@ -31,7 +31,7 @@
             <!-----Menu Section ------>
                     <aside class="menu">
                     <h1 class="title is-2">Messages</h1>
-                    <ul style="overflow-y: scroll; height: 500px" class="menu-list">
+                    <ul style="overflow-y: scroll; height: 650px" class="menu-list">
                             <!-- chat Card -->
 
                 {% for message in messages %}
@@ -71,7 +71,11 @@
              </a>
             
               {% endfor %}
-
+            </ul>
+                    </aside>
+                    <div >
+                      <a href="{% url 'usersearch' %}" class="button is-success is-medium is-fullwidth">New message</a>
+                    </div>
           <!------>
         </div>
       
@@ -153,16 +157,17 @@
                 </article>
               </form>
             </div>
-              
+            
             </div>
+        
           </div>
-    
-          
+         
+         
         </div>
      
   
       </div> 
-      
+
     </div>
     </div>
       </section>
