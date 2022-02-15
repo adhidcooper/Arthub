@@ -25,13 +25,13 @@
   <body>
     <!-----------Navigation  Bar------------>
     <nav
-      class="navbar is-spaced has-shadow is-light"
+      class="navbar has-shadow is-light is-spaced is-hoverable"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="{% url 'index' %}">
-          <h2 class="title" >ArtHub</h2>
+          <h2 class="title">ART<span style="color:crimson">HUB</span> </h2>
         </a>
 
         <a
@@ -47,7 +47,10 @@
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+
+
+
+      <div id="navbarBasicExample" class="navbar-menu is-flex-touch">
         <div class="navbar-end">
           <a href="{% url 'index' %}" class="navbar-item">
             <i class="material-icons"> home </i>
@@ -62,7 +65,7 @@
 
           <a href="{% url 'inbox' %}" class="navbar-item">
             <i class="material-icons"> inbox </i>
-            Inbox
+           Inbox 
             {% if directs_count %}
             <span class="badge">{{ directs_count }}</span>
             {% endif %}
@@ -70,29 +73,29 @@
 
 
           <a href="{% url 'newpost' %}" class="navbar-item">
-            <i style="color: greenyellow" class="material-icons">
-              add_photo_alternate
+            <i  class="material-icons">
+              add_box
             </i>
-            <strong>New Post</strong>
+            New Post
           </a>
 
           <a href="{% url 'show-notifications' %}" class="navbar-item">
             <i class="material-icons"> notifications </i>
-            Notifications
+            Notifications 
             {% if count_notifications  %}
             <span class="badge">{{ count_notifications }}</span>
             {% endif %}
           </a>
 
           <a href="{% url 'profile' request.user %}" class="navbar-item">
-            <i class="material-icons"> account_circle </i>
-            <strong>@{{ request.user }}</strong>
+            <i class="material-icons">person</i>
+         <strong style="text-transform:capitalize">{{ request.user }}</strong> 
           </a>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link is-arrowless">
               <i class="material-icons"> settings </i>
-              Settings
+             Settings 
             </a>
 
             <div class="navbar-dropdown is-right">
@@ -127,6 +130,12 @@
         </div>
       </div>
     </nav>
+
+
+
+
+
+
 
 
 
