@@ -1,10 +1,12 @@
 asgiref==3.4.1
 backports.zoneinfo==0.2.1
-Django==4.0
+Django==4.0.2
+django-extensions==3.1.5
 django-widget-tweaks==1.4.12
 Pillow==9.0.0
 sqlparse==0.4.2
 pipenv==11.9.0
 virtualenv==20.0.17
-
+pydot==1.4.2
+pyparsing==3.0.7
 

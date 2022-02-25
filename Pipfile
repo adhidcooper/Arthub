@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-extensions = "*"
+pyparsing = "*"
+pydot = "*"
+shell = "*"
 
 [dev-packages]
 

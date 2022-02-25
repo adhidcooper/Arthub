@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARTHUB</title>
+    <!--<link rel="shortcut icon" href="{% static '' %}" type="image/x-icon">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/art.png' %}">
+</head>
+
+<body>
+    <section class="hero is-info is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#">
+                            <h2 class="title2">ART<span style="color:crimson">HUB</span> </h2>
+                          </a>
+                          <a
+                          role="button"
+                          class="navbar-burger"
+                          aria-label="menu"
+                          aria-expanded="false"
+                          data-target="navbarBasicExample"
+                        >
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                          <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="{% url 'login' %}">
+
+                                    <span>LOGIN</span>
+
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="{% url 'signup' %}">
+                                    
+                                    <span>SIGN UP</span>
+                                </a>
+                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            </div>
+
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3">
+                        <h1 class="title">
+                            You're at the right place
+                        </h1>
+                        <br>
+                        <h2 class="subtitle">
+                            Do you want to display your mesmerizing art works to the world ? or are you looking for an artist to paint your surrounding with masterpieces from around the world and customize according to your needs? <br>
+                            Then you have headed to the right place ! 
+                            Come connect with artists from all around the world on our website , helping you in  having a colourful atmosphere !!
+                        </h2>
+                        
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p style="color: white;">
+            <strong style="color: white;">ART<span style="color:crimson">HUB</span></strong> by <a href="#">Adarsh Unni</a>, <a href="#">Bhuvana Somashekar</a>,  <a href="#">Bhoomika GL</a> The source code is available on  
+            <a href="https://github.com/adhidcooper/arthub">GITHUB</a>.
+          </p>
+        </div>
+      </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

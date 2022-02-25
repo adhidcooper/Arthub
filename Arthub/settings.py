@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'direct',
     'notifications',
     'widget_tweaks',
+    'django_extensions',
 
 ]
 
@@ -145,3 +146,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = '/user/login/'
+
+# Django_extensions
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
