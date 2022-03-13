@@ -5,6 +5,7 @@ Arthub is a simple project to develop a social media platform for freelancer art
 ### build with 
 
 [Bulma](https://bulma.io/documentation/) - Bulma is a free, open source CSS framework based on Flexbox
+
 [Django](https://docs.djangoproject.com/en/4.0/) - Web framework 
 
 ### Getting Started 
